@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUSTTR ASİSTAN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="glow-orb"></div>
+            <h1>RUSTTR <span>ASİSTAN</span></h1>
+            <p>Discord Sunucunuzun Akıllı Yöneticisi</p>
+            <a href="leaderboard.html" class="nav-link">🏆 Canlı Liderlik Tablosunu Gör</a>
+        </header>
+
+        <main class="chat-container">
+            <div class="chat-history" id="chat-history">
+                <div class="message ai">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">Merhaba! Sunucunuzda ne yapmamı istersiniz? Örneğin: "Genel adında bir metin kanalı aç" veya "VIP adında rol oluştur".</div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="command-input" placeholder="Asistana komutunuzu yazın..." autocomplete="off">
+                <button id="send-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

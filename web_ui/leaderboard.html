@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUSTTR - CANLI LİDERLİK TABLOSU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container leaderboard-container">
+        <header>
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(230, 126, 34, 0.4) 0%, rgba(230, 126, 34, 0) 70%);"></div>
+            <h1>RUSTTR <span>LİDERLİK TABLOSU</span></h1>
+            <p>Oyun İçi Canlı İstatistikler</p>
+            <a href="index.html" class="nav-link">⬅ Asistana Dön</a>
+        </header>
+
+        <main class="stats-grid" id="stats-grid">
+            <div class="stat-card loading">
+                <h3>⚔️ En Çok Öldürenler</h3>
+                <ul id="list-kills">
+                    <li>Veri bekleniyor...</li>
+                </ul>
+            </div>
+            <div class="stat-card loading">
+                <h3>🪓 En Çok Odun Toplayan</h3>
+                <ul id="list-wood">
+                    <li>Veri bekleniyor...</li>
+                </ul>
+            </div>
+            <div class="stat-card loading">
+                <h3>🪨 En Çok Taş Toplayan</h3>
+                <ul id="list-stone">
+                    <li>Veri bekleniyor...</li>
+                </ul>
+            </div>
+            <div class="stat-card loading">
+                <h3>📦 En Çok Kutu Kıran</h3>
+                <ul id="list-barrels">
+                    <li>Veri bekleniyor...</li>
+                </ul>
+            </div>
+            <div class="stat-card loading stat-wide">
+                <h3>🎯 En Uzun Mesafe Atışı</h3>
+                <div class="longest-kill" id="longest-kill-box">
+                    <span class="player-name">-</span>
+                    <span class="kill-dist">0m</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="leaderboard.js"></script>
+</body>
+</html>
