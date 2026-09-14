@@ -192,12 +192,12 @@ async function updateLiveLeaderboard() {
     const topWood = [...players].sort((a,b) => b.WoodGathered - a.WoodGathered).slice(0, 3);
     const topStone = [...players].sort((a,b) => b.StoneGathered - a.StoneGathered).slice(0, 3);
     const topBarrels = [...players].sort((a,b) => b.BarrelsBroken - a.BarrelsBroken).slice(0, 3);
-    const topMetal = [...players].sort((a,b) => (a.MetalGathered || 0) - (b.MetalGathered || 0)).slice(0, 3);
-    const topScrap = [...players].sort((a,b) => (a.ScrapGathered || 0) - (b.ScrapGathered || 0)).slice(0, 3);
-    const topHeadshots = [...players].sort((a,b) => (a.Headshots || 0) - (b.Headshots || 0)).slice(0, 3);
-    const topAnimals = [...players].sort((a,b) => (a.AnimalsKilled || 0) - (b.AnimalsKilled || 0)).slice(0, 3);
-    const topSleepers = [...players].sort((a,b) => (a.SleeperKills || 0) - (b.SleeperKills || 0)).slice(0, 3);
-    const topSuicides = [...players].sort((a,b) => (a.Suicides || 0) - (b.Suicides || 0)).slice(0, 3);
+    const topMetal = [...players].sort((a,b) => (b.MetalGathered || 0) - (a.MetalGathered || 0)).slice(0, 3);
+    const topScrap = [...players].sort((a,b) => (b.ScrapGathered || 0) - (a.ScrapGathered || 0)).slice(0, 3);
+    const topHeadshots = [...players].sort((a,b) => (b.Headshots || 0) - (a.Headshots || 0)).slice(0, 3);
+    const topAnimals = [...players].sort((a,b) => (b.AnimalsKilled || 0) - (a.AnimalsKilled || 0)).slice(0, 3);
+    const topSleepers = [...players].sort((a,b) => (b.SleeperKills || 0) - (a.SleeperKills || 0)).slice(0, 3);
+    const topSuicides = [...players].sort((a,b) => (b.Suicides || 0) - (a.Suicides || 0)).slice(0, 3);
     const longestKill = [...players].sort((a,b) => b.LongestKillDistance - a.LongestKillDistance)[0];
 
     const embed = new EmbedBuilder()
