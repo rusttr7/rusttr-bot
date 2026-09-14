@@ -188,7 +188,16 @@ async function updateLiveLeaderboard() {
 
     // Top 3'leri hesapla
     const topKills = [...players].sort((a,b) => b.Kills - a.Kills).slice(0, 3);
+    const topDeaths = [...players].sort((a,b) => b.Deaths - a.Deaths).slice(0, 3);
     const topWood = [...players].sort((a,b) => b.WoodGathered - a.WoodGathered).slice(0, 3);
+    const topStone = [...players].sort((a,b) => b.StoneGathered - a.StoneGathered).slice(0, 3);
+    const topBarrels = [...players].sort((a,b) => b.BarrelsBroken - a.BarrelsBroken).slice(0, 3);
+    const topMetal = [...players].sort((a,b) => (a.MetalGathered || 0) - (b.MetalGathered || 0)).slice(0, 3);
+    const topScrap = [...players].sort((a,b) => (a.ScrapGathered || 0) - (b.ScrapGathered || 0)).slice(0, 3);
+    const topHeadshots = [...players].sort((a,b) => (a.Headshots || 0) - (b.Headshots || 0)).slice(0, 3);
+    const topAnimals = [...players].sort((a,b) => (a.AnimalsKilled || 0) - (b.AnimalsKilled || 0)).slice(0, 3);
+    const topSleepers = [...players].sort((a,b) => (a.SleeperKills || 0) - (b.SleeperKills || 0)).slice(0, 3);
+    const topSuicides = [...players].sort((a,b) => (a.Suicides || 0) - (b.Suicides || 0)).slice(0, 3);
     const longestKill = [...players].sort((a,b) => b.LongestKillDistance - a.LongestKillDistance)[0];
 
     const embed = new EmbedBuilder()
@@ -196,9 +205,21 @@ async function updateLiveLeaderboard() {
         .setColor('#e67e22') // Rust Turuncusu
         .setDescription('Sunucudaki güncel istatistikler (Her 15 saniyede bir güncellenir)')
         .addFields(
-            { name: '⚔️ EN ÇOK ÖLDÜRENLER', value: topKills.map((p, i) => `${i+1}. ${p.Name} - ${p.Kills || 0} Leş`).join('\n') || 'Veri yok', inline: true },
+            { name: '⚔️ EN ÇOK ÖLDÜREN', value: topKills.map((p, i) => `${i+1}. ${p.Name} - ${p.Kills || 0} Leş`).join('\n') || 'Veri yok', inline: true },
+            { name: '🎯 EN ÇOK KAFADAN VURAN', value: topHeadshots.map((p, i) => `${i+1}. ${p.Name} - ${p.Headshots || 0} HS`).join('\n') || 'Veri yok', inline: true },
+            { name: '💀 EN ÇOK ÖLEN', value: topDeaths.map((p, i) => `${i+1}. ${p.Name} - ${p.Deaths || 0} Kez`).join('\n') || 'Veri yok', inline: true },
+            
             { name: '🪓 EN ÇOK ODUN TOPLAYAN', value: topWood.map((p, i) => `${i+1}. ${p.Name} - ${p.WoodGathered || 0}`).join('\n') || 'Veri yok', inline: true },
-            { name: '🎯 EN UZUN MESAFE ATIŞI', value: longestKill && longestKill.LongestKillDistance > 0 ? `${longestKill.Name} (${longestKill.LongestKillDistance}m)` : 'Veri yok', inline: false }
+            { name: '🪨 EN ÇOK TAŞ TOPLAYAN', value: topStone.map((p, i) => `${i+1}. ${p.Name} - ${p.StoneGathered || 0}`).join('\n') || 'Veri yok', inline: true },
+            { name: '⛏️ EN ÇOK METAL TOPLAYAN', value: topMetal.map((p, i) => `${i+1}. ${p.Name} - ${p.MetalGathered || 0}`).join('\n') || 'Veri yok', inline: true },
+            
+            { name: '🛢️ EN ÇOK VARİL KIRAN', value: topBarrels.map((p, i) => `${i+1}. ${p.Name} - ${p.BarrelsBroken || 0} Kutu`).join('\n') || 'Veri yok', inline: true },
+            { name: '⚙️ EN ÇOK HURDA BULAN', value: topScrap.map((p, i) => `${i+1}. ${p.Name} - ${p.ScrapGathered || 0} Scrap`).join('\n') || 'Veri yok', inline: true },
+            { name: '🐻 EN ÇOK HAYVAN AVLAYAN', value: topAnimals.map((p, i) => `${i+1}. ${p.Name} - ${p.AnimalsKilled || 0} Hayvan`).join('\n') || 'Veri yok', inline: true },
+
+            { name: '🩸 EN ACIMASIZ (Uyuyan Katili)', value: topSleepers.map((p, i) => `${i+1}. ${p.Name} - ${p.SleeperKills || 0} Leş`).join('\n') || 'Veri yok', inline: true },
+            { name: '💥 EN ÇOK İNTİHAR EDEN', value: topSuicides.map((p, i) => `${i+1}. ${p.Name} - ${p.Suicides || 0} Kez`).join('\n') || 'Veri yok', inline: true },
+            { name: '🔭 EN UZUN MESAFE ATIŞI', value: longestKill && longestKill.LongestKillDistance > 0 ? `${longestKill.Name} (${longestKill.LongestKillDistance}m)` : 'Veri yok', inline: true }
         )
         .setFooter({ text: 'Son Güncelleme' })
         .setTimestamp();
